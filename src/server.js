@@ -1,10 +1,11 @@
-const http = require('http');
-const app = require('./App');
-
+const express = require('express')
+const app = express()
 const port = process.env.PORT || 3000;
 
-const server = http.createServer(app); // Note the capitalization of `app` to `app` to match convention
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-server.listen(port, () => {
-    console.log(`Started on port ${port}`); // Fixed template literal syntax
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
